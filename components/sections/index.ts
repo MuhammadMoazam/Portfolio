@@ -1,0 +1,28 @@
+export { Hero, HeroSection, HeroMinimal } from "./hero";
+export { AnimatedGradientBackground, GradientMesh } from "./animated-background";
+export { FloatingParticles, FloatingShapes } from "./floating-particles";
+export { NetworkParticles } from "./network-particles";
+export { ScrollIndicator, ScrollIndicatorDots } from "./scroll-indicator";
+export { AboutSection } from "./about";
+export { StatCard } from "./stat-card";
+export { SkillsSection } from "./skills";
+export { SkillCard } from "./skill-card";
+export { ProjectsSection } from "./projects";
+export { ProjectCard } from "./project-card";
+export { ProjectModal } from "./project-modal";
+export { ProjectDetailModal } from "./project-detail-modal";
+export { ImageCarousel } from "./image-carousel";
+export type { Project } from "./project-card";
+export { ExperienceSection } from "./experience";
+export { ExperienceCard } from "./experience-card";
+export type { Experience } from "./experience-card";
+export { AnimatedTimeline, TimelineDot } from "./timeline";
+export { EducationSection } from "./education";
+export { EducationCard } from "./education-card";
+export type { Education } from "./education-card";
+export { CertificationCard } from "./certification-card";
+export type { Certification } from "./certification-card";
+export { ContactSection } from "./contact";
+export { ContactForm } from "./contact-form";
+export { ContactInfo } from "./contact-info";
+
