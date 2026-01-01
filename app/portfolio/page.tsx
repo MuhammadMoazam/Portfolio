@@ -10,6 +10,7 @@ import { EducationSection } from "@/components/sections/education";
 import { ContactSection } from "@/components/sections/contact";
 import { OfflineDetector } from "@/components/ui/offline-detector";
 import { ErrorBoundary } from "@/components/error/error-boundary";
+import { Navbar } from "@/components/layout/navbar";
 
 // Import resume data
 import {
@@ -27,6 +28,9 @@ export default function PortfolioPage() {
   return (
     <>
       <OfflineDetector />
+      
+      {/* Navigation with Theme Toggle */}
+      <Navbar />
       
       <ErrorBoundary>
         {/* Hero Section */}

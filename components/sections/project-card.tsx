@@ -100,13 +100,14 @@ export function ProjectCard({ project, index, onViewDetails }: ProjectCardProps)
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-foreground text-background rounded-full hover:bg-primary transition-colors"
+                  className="p-3 bg-foreground/90 text-background rounded-full hover:bg-primary hover:text-white transition-colors shadow-lg"
                   initial={{ scale: 0, rotate: -180 }}
                   animate={isHovered ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -180 }}
                   transition={{ delay: 0.1 }}
                   onClick={(e) => e.stopPropagation()}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
+                  title="View GitHub Repository"
                 >
                   <Github className="h-5 w-5" />
                 </motion.a>
@@ -116,25 +117,27 @@ export function ProjectCard({ project, index, onViewDetails }: ProjectCardProps)
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-foreground text-background rounded-full hover:bg-primary transition-colors"
+                  className="p-3 bg-foreground/90 text-background rounded-full hover:bg-primary hover:text-white transition-colors shadow-lg"
                   initial={{ scale: 0, rotate: -180 }}
                   animate={isHovered ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -180 }}
                   transition={{ delay: 0.15 }}
                   onClick={(e) => e.stopPropagation()}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
+                  title="View Live Demo"
                 >
                   <ExternalLink className="h-5 w-5" />
                 </motion.a>
               )}
               <motion.button
                 onClick={() => onViewDetails(project)}
-                className="p-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors"
+                className="p-3 bg-primary dark:bg-primary text-white dark:text-white rounded-full hover:bg-primary/90 dark:hover:bg-primary/90 transition-colors shadow-lg"
                 initial={{ scale: 0, rotate: -180 }}
                 animate={isHovered ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -180 }}
                 transition={{ delay: 0.2 }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
+                title="View Project Details"
               >
                 <Eye className="h-5 w-5" />
               </motion.button>

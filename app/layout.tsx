@@ -113,10 +113,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
-        {/* Theme Script */}
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        {/* Theme Script - Dark Mode Only */}
+        <script dangerouslySetInnerHTML={{ __html: `document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';` }} />
         
         {/* JSON-LD Structured Data */}
         <script
@@ -127,8 +127,8 @@ export default function RootLayout({
         {/* Canonical URL */}
         <link rel="canonical" href={siteConfig.url} />
       </head>
-      <body className={`${inter.variable} ${poppins.variable} ${spaceGrotesk.variable} font-sans`}>
-        <ThemeProvider defaultTheme="light" storageKey="theme">
+      <body className={`${inter.variable} ${poppins.variable} ${spaceGrotesk.variable} font-sans dark`}>
+        <ThemeProvider defaultTheme="dark" storageKey="theme">
           <AnnounceProvider>
             <ToastProvider>
               {children}

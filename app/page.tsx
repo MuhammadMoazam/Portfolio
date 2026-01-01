@@ -10,6 +10,7 @@ import { ContactSection } from "@/components/sections/contact";
 import { NetworkParticles } from "@/components/sections/network-particles";
 import { OfflineDetector } from "@/components/ui/offline-detector";
 import { ErrorBoundary } from "@/components/error/error-boundary";
+import { Navbar } from "@/components/layout/navbar";
 
 // Import resume data
 import {
@@ -27,6 +28,9 @@ export default function Home() {
   return (
     <>
       <OfflineDetector />
+      
+      {/* Navigation with Theme Toggle */}
+      <Navbar />
       
       {/* Network Particles Background - Covers Entire Portfolio */}
       <div className="fixed inset-0 pointer-events-none" style={{ zIndex: 0 }}>

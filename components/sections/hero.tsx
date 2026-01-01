@@ -253,9 +253,9 @@ export function HeroSection({
           ))}
         </motion.div>
 
-        {/* Scroll Indicator */}
+        {/* Scroll Indicator - Well Below Social Icons */}
         <motion.div
-          className="absolute bottom-2 sm:bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute -bottom-8 sm:-bottom-12 md:-bottom-16 left-1/2 transform -translate-x-1/2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.5 }}

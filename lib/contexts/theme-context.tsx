@@ -23,30 +23,18 @@ interface ThemeProviderProps {
 
 export function ThemeProvider({
   children,
-  defaultTheme = "light",
+  defaultTheme = "dark",
   storageKey = "theme",
 }: ThemeProviderProps) {
-  const [theme, setThemeState] = useState<Theme>(defaultTheme);
+  const [theme, setThemeState] = useState<Theme>("dark");
   const [mounted, setMounted] = useState(false);
 
-  // Initialize theme on mount
+  // Initialize theme on mount - Force dark mode only
   useEffect(() => {
     try {
-      // Check localStorage first
-      const storedTheme = localStorage.getItem(storageKey) as Theme | null;
-      
-      if (storedTheme && (storedTheme === "light" || storedTheme === "dark")) {
-        setThemeState(storedTheme);
-        applyTheme(storedTheme);
-      } else {
-        // Check system preference
-        const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)"
-        ).matches;
-        const systemTheme = prefersDark ? "dark" : "light";
-        setThemeState(systemTheme);
-        applyTheme(systemTheme);
-      }
+      // Always use dark theme
+      setThemeState("dark");
+      applyTheme("dark");
     } catch (error) {
       console.error("Error loading theme:", error);
     } finally {
@@ -54,23 +42,11 @@ export function ThemeProvider({
     }
   }, [storageKey]);
 
-  // Listen for system theme changes
+  // Dark mode only - no system theme changes needed
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-
-    const handleChange = (e: MediaQueryListEvent) => {
-      // Only update if user hasn't set a preference
-      const storedTheme = localStorage.getItem(storageKey);
-      if (!storedTheme) {
-        const newTheme = e.matches ? "dark" : "light";
-        setThemeState(newTheme);
-        applyTheme(newTheme);
-      }
-    };
-
-    mediaQuery.addEventListener("change", handleChange);
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, [storageKey]);
+    // Always maintain dark mode
+    applyTheme("dark");
+  }, []);
 
   const applyTheme = useCallback((newTheme: Theme) => {
     const root = document.documentElement;

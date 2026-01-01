@@ -6,7 +6,6 @@ import { Menu } from "lucide-react";
 import { navigationLinks } from "@/lib/constants/navigation";
 import { useActiveSection } from "@/lib/hooks/use-active-section";
 import { useScroll as useScrollHook } from "@/lib/hooks/use-scroll";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { MobileMenu } from "./mobile-menu";
 import { cn } from "@/lib/utils";
 
@@ -27,6 +26,8 @@ export function Navbar() {
 
   // Handle smooth scroll to section
   const handleNavigation = (href: string) => {
+    if (typeof window === 'undefined') return;
+    
     const sectionId = href.replace("#", "");
     const element = document.getElementById(sectionId);
 
@@ -146,9 +147,6 @@ export function Navbar() {
               transition={{ delay: 0.2 }}
               className="flex items-center space-x-2"
             >
-              {/* Theme Toggle */}
-              <ThemeToggle />
-
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
@@ -166,7 +164,9 @@ export function Navbar() {
         <motion.div
           className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary origin-left"
           style={{
-            scaleX: scrollPosition / (document.documentElement.scrollHeight - window.innerHeight),
+            scaleX: typeof window !== 'undefined' 
+              ? scrollPosition / (document.documentElement.scrollHeight - window.innerHeight)
+              : 0,
           }}
           initial={{ scaleX: 0 }}
         />

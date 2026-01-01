@@ -233,7 +233,7 @@ export function ContactForm() {
       <motion.button
         type="submit"
         disabled={isSubmitting}
-        className="w-full px-6 py-4 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transition-shadow disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        className="w-full px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transition-shadow disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         whileHover={!isSubmitting ? { scale: 1.02 } : {}}
         whileTap={!isSubmitting ? { scale: 0.98 } : {}}
       >
@@ -269,7 +269,7 @@ function FloatingLabelInput({
     <div className="relative">
       <input
         {...props}
-        className={`peer w-full px-4 pt-6 pb-2 bg-muted/50 border-2 rounded-lg outline-none transition-all ${
+        className={`peer w-full px-3 sm:px-4 pt-5 sm:pt-6 pb-2 text-sm sm:text-base bg-muted/50 border-2 rounded-lg outline-none transition-all ${
           error
             ? "border-red-500 focus:border-red-500"
             : "border-border focus:border-primary"
@@ -278,11 +278,11 @@ function FloatingLabelInput({
         aria-describedby={errorId}
       />
       <label
-        className={`absolute left-4 transition-all pointer-events-none ${
+        className={`absolute left-3 sm:left-4 transition-all pointer-events-none ${
           hasValue || props.placeholder === " "
-            ? "top-2 text-xs text-foreground-secondary"
-            : "top-1/2 -translate-y-1/2 text-base text-foreground-secondary"
-        } peer-focus:top-2 peer-focus:text-xs peer-focus:text-primary ${
+            ? "top-1.5 sm:top-2 text-[10px] sm:text-xs text-foreground-secondary"
+            : "top-1/2 -translate-y-1/2 text-sm sm:text-base text-foreground-secondary"
+        } peer-focus:top-1.5 sm:peer-focus:top-2 peer-focus:text-[10px] sm:peer-focus:text-xs peer-focus:text-primary ${
           error ? "text-red-500 peer-focus:text-red-500" : ""
         }`}
       >
@@ -319,7 +319,7 @@ function FloatingLabelTextarea({
     <div className="relative">
       <textarea
         {...props}
-        className={`peer w-full px-4 pt-6 pb-2 bg-muted/50 border-2 rounded-lg outline-none transition-all resize-none ${
+        className={`peer w-full px-3 sm:px-4 pt-5 sm:pt-6 pb-2 text-sm sm:text-base bg-muted/50 border-2 rounded-lg outline-none transition-all resize-none ${
           error
             ? "border-red-500 focus:border-red-500"
             : "border-border focus:border-primary"
@@ -328,11 +328,11 @@ function FloatingLabelTextarea({
         aria-describedby={errorId}
       />
       <label
-        className={`absolute left-4 transition-all pointer-events-none ${
+        className={`absolute left-3 sm:left-4 transition-all pointer-events-none ${
           hasValue || props.placeholder === " "
-            ? "top-2 text-xs text-foreground-secondary"
-            : "top-6 text-base text-foreground-secondary"
-        } peer-focus:top-2 peer-focus:text-xs peer-focus:text-primary ${
+            ? "top-1.5 sm:top-2 text-[10px] sm:text-xs text-foreground-secondary"
+            : "top-5 sm:top-6 text-sm sm:text-base text-foreground-secondary"
+        } peer-focus:top-1.5 sm:peer-focus:top-2 peer-focus:text-[10px] sm:peer-focus:text-xs peer-focus:text-primary ${
           error ? "text-red-500 peer-focus:text-red-500" : ""
         }`}
       >
